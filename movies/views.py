@@ -6,7 +6,6 @@ from django.http import HttpResponse
 from .models import Movie
 
 from .forms import MovieForm
-# Create your views here.
 
 # Aqui creamos nuestras vistas
 
