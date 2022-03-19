@@ -3,10 +3,7 @@
     {% for space in form %}
     <div class="form-group">
       <label for="" class="form-label">{{ space.label }}</label>
-      </br>
-      {% if space.field.widget.input_type == 'file' and space.value %}
-      <img src="{{MEDIA_URL}}/images/{{space.value}}" width="100" alt="">
-      {% endif %}
+
       <input 
         type="{{ space.field.widget.input_type }}"
         class="form-control"
@@ -16,7 +13,9 @@
         placeholder="{{ space.label }}"
         value=" {{ space.value | default:'' }} "
         >
-        
+        {% if space.field.widget.input_type == 'file' and space.value %}
+        <img src="{{MEDIA_URL}}/images/{{space.value}}" width="100" alt="">
+        {% endif %}  
     </div>
     <div class="col-12 help-text"> {{ space.errors }}</div>
     {% endfor %}
