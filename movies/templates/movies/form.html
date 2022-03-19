@@ -13,10 +13,11 @@
         placeholder="{{ space.label }}"
         value=" {{ space.value | default:'' }} "
         >
-        {% if space.field.widget.input_type == 'file' and space.value %}
-        <img src="{{MEDIA_URL}}/images/{{space.value}}" width="100" alt="">
-        {% endif %}  
+         
     </div>
+    {% if space.field.widget.input_type == 'file' and space.value %}
+        <img src="{{MEDIA_URL}}/images/{{space.value}}" width="100" alt="">
+    {% endif %} 
     <div class="col-12 help-text"> {{ space.errors }}</div>
     {% endfor %}
     <input name="" id="" class="btn btn-success" type="submit" value="Registrar">
