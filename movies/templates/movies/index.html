@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                  <button type="button" class="btn btn-primary" href="{%url 'delete' movie.id">Aceptar</button>
+                                  <a name="" id="" class="btn btn-danger" href="{% url 'delete' movie.id %}" role="button" data-togle="modal" data-target="#deleteConfirm">Eliminar</a>
                                 </div>
                               </div>
                             </div>
