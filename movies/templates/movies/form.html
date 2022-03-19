@@ -2,8 +2,10 @@
     {% csrf_token %}
     {% for space in form %}
     <div class="container">
-      <div class="row mb-8">
+      <div class="row mb-3">
       
+        <div class="col-8">
+
           <div class="form-group">
             <label for="" class="form-label">{{ space.label }}</label>
       
@@ -18,15 +20,19 @@
               >
                
           </div>
-      </div>
+
+        </div>
+          
+        
         
           {% if space.field.widget.input_type == 'file' and space.value %}
-          <div class="row mb-2">
+            <div class="col-4">
               <img src="{{MEDIA_URL}}/images/{{space.value}}" width="100" alt="">
-          </div>
+            </div>
+              
           {% endif %}
         
-      
+      </div>
     </div>
 
 
