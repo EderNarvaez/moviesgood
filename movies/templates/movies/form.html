@@ -1,23 +1,35 @@
 <form enctype="multipart/form-data" method="post">
     {% csrf_token %}
     {% for space in form %}
-    <div class="form-group">
-      <label for="" class="form-label">{{ space.label }}</label>
-
-      <input 
-        type="{{ space.field.widget.input_type }}"
-        class="form-control"
-        name="{{ space.name }}"
-        id=""
-        aria-describedby="helpId"
-        placeholder="{{ space.label }}"
-        value=" {{ space.value | default:'' }} "
-        >
-         
+    <div class="container">
+      <div class="rows">
+        <div class="col-8">
+          <div class="form-group">
+            <label for="" class="form-label">{{ space.label }}</label>
+      
+            <input 
+              type="{{ space.field.widget.input_type }}"
+              class="form-control"
+              name="{{ space.name }}"
+              id=""
+              aria-describedby="helpId"
+              placeholder="{{ space.label }}"
+              value=" {{ space.value | default:'' }} "
+              >
+               
+          </div>
+        </div>
+        <div class="col-4">
+          {% if space.field.widget.input_type == 'file' and space.value %}
+              <img src="{{MEDIA_URL}}/images/{{space.value}}" width="100" alt="">
+          {% endif %}
+        </div>
+      </div>
     </div>
-    {% if space.field.widget.input_type == 'file' and space.value %}
-        <img src="{{MEDIA_URL}}/images/{{space.value}}" width="100" alt="">
-    {% endif %} 
+
+
+    
+     
     <div class="col-12 help-text"> {{ space.errors }}</div>
     {% endfor %}
     <input name="" id="" class="btn btn-success" type="submit" value="Registrar">
