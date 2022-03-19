@@ -13,7 +13,7 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <!-- <th>ID</th> -->
                     <th>Titulo</th>
                     <th>Imagen</th>
                     <th>Descripción</th>
@@ -23,8 +23,8 @@
             <tbody>
                 {% for movie in movies %}
                 <tr>
-                    <td>{{ movie.id }}</td>
-                    <td>{{ movie.title }}</td>
+                    <!-- <td>{{ movie.id }}</td> -->
+                    <td><b>{{ movie.title }}</b></td>
                     <td>
                         <img src="{{ movie.image.url }}" height="50" width="40">
                         
